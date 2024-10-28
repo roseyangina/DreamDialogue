@@ -25,7 +25,7 @@ const Landing = ({ setUser }) => {
                     </button>
                 </div>
             )}
-            {showForm === 'register' && <Register />}
+            {showForm === 'register' && <Register setUser={setUser}  />}
             {showForm === 'login' && <Login setUser={setUser} />}
         </div>
     );

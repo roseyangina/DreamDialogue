@@ -17,6 +17,7 @@ const ProductSchema = mongoose.Schema(
             required: [false, "Please enter total sleep hours"],
         },
     },
+    
     {
         timestamps: true,
     }

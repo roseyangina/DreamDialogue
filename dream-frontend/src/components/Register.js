@@ -5,19 +5,21 @@ import { useNavigate } from 'react-router-dom';
 const Register = ({ setUser }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const history = useNavigate();
+    const navigate = useNavigate();
 
     const handleRegister = async (e) => {
         e.preventDefault();
+        console.log('Registering user with:', { username, password });
         try {
             const response = await axios.post('http://localhost:3000/api/products/register', {
                 username,
                 password,
             });
+            console.log('Response:', response.data);
             alert('User registered successfully!');
             // Set user data and redirect to PostDream page
             setUser(response.data); // Store user data
-            history.push('/postdream'); // Redirect to PostDream page
+            navigate('/postdream'); // Redirect to PostDream page
         } catch (error) {
             console.error('Error registering user:', error);
             alert('Failing to register user');
