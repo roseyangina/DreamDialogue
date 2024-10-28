@@ -1,18 +1,17 @@
 {
-  "name": "dreamdialogue",
+  "name": "DreamDialogue",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "test": "echo \"No tests specified\" && exit 0"
+    "test": "echo \"Error: no test specified\"",
+    "serve": "node index.js",
+    "dev": "nodemon index.js"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
   "dependencies": {
-<<<<<<< roangina
-    "bcrypt": "^5.1.1",
-    "cors": "^2.8.5",         
-    "express": "^4.21.1",     
-    "mongoose": "^8.7.3"      
-=======
     "cors": "^2.8.5",
     "express": "^4.21.1",
     "mongodb": "^6.9.0",
@@ -20,6 +19,5 @@
   },
   "devDependencies": {
     "nodemon": "^3.1.7"
->>>>>>> main
   }
 }
