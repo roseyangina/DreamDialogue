@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 // routes
 app.use('/api/products', productRoute);
 
-mongoose.connect("mongodb+srv://rangina:ranginapass@cluster0.huzre.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+mongoose.connect("mongodb+srv://tranjonathan0917:DreamDialogue@dreamdialogue.bbacb.mongodb.net/?retryWrites=true&w=majority&appName=DreamDialogue")
     .then(() => {
         console.log('Connected to MongoDB');
         app.listen(3000, () => {
