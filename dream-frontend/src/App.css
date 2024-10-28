@@ -1,0 +1,61 @@
+/* App.css */
+
+body {
+  background-color: #1a1a40; /* Navy blue background */
+  color: #ffffff; /* White text */
+  font-family: 'Arial', sans-serif;
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+h1 {
+  color: #e0e4ff; /* Light blue for a dreamy title */
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+input, textarea {
+  background-color: #e0e4ff; /* Soft background for input fields */
+  color: #1a1a40; /* Dark text inside input fields */
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  background-color: #4a5dff; /* Soft blue button */
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 5px; /* Add margin to separate buttons */
+}
+
+button:hover {
+  background-color: #3a4dcc; /* Slightly darker blue on hover */
+}
+
+/* Additional styling for Landing page buttons */
+.landing-button {
+  display: inline-block;
+  width: 45%; 
+  margin: 0 5px; 
+  font-size: 1rem;
+}
+
+/* App.css */
+.register-container {
+  margin-top: 10px; /* Adjust to desired value */
+  
+}
+
