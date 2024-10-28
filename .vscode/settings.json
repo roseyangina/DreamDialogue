@@ -1,4 +1,0 @@
-{
-    "appService.defaultWebAppToDeploy": "/subscriptions/42270fb7-767b-4755-849d-6a0aac1d50cd/resourceGroups/DreamDialogue/providers/Microsoft.Web/sites/DreamDialogue",
-    "appService.deploySubpath": "."
-}
