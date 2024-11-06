@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const Product = require('./models/product.model.js');
 const cors = require('cors'); // Import CORS
 const productRoute = require('./routes/product.route.js');
+const postRoute = require('./routes/post.route.js');
 const app = express()
 
 // middleware
@@ -15,6 +16,7 @@ app.get('/', (req, res) => {
 
 // routes
 app.use('/api/products', productRoute);
+app.use('/api/posts', postRoute);
 
 mongoose.connect("mongodb+srv://tranjonathan0917:DreamDialogue@dreamdialogue.bbacb.mongodb.net/?retryWrites=true&w=majority&appName=DreamDialogue")
     .then(() => {
