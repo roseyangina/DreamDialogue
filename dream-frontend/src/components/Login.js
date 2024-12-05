@@ -8,11 +8,11 @@ const Login = ({ setUser }) => {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:3000/api/products/login', {
+            const response = await axios.post('http://localhost:3001/api/products/login', {
                 username,
                 password,
             });
-            alert('Login successful!');
+            //alert('Login successful!');
             setUser(response.data); // Set the logged-in user data to enable access to PostDream
         } catch (error) {
             console.error('Error logging in:', error);

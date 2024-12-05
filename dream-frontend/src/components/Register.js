@@ -11,24 +11,24 @@ const Register = ({ setUser }) => {
         e.preventDefault();
         console.log('Registering user with:', { username, password });
         try {
-            const response = await axios.post('http://localhost:3000/api/products/register', {
+            console.log('Sending data:', { username, password });
+            const response = await axios.post('http://localhost:3001/api/products/register', {
                 username,
                 password,
             });
-            console.log('Response:', response.data);
-            alert('User registered successfully!');
-            // Set user data and redirect to PostDream page
-            setUser(response.data); // Store user data
-            navigate('/postdream'); // Redirect to PostDream page
-        } catch (error) {
-            console.error('Error registering user:', error);
-            alert('Failing to register user');
-        }
-    };
+            // Set the full user object in state and localStorage
+        console.log('Register response:', response.data);
+        setUser(response.data); // Save user data to App state
+        //alert('Registration successful!');
+    } catch (error) {
+        console.error('Error registering user:', error);
+        alert('Failed to register');
+    }
+};
 
     return (
-        <div className="register-container max-w-md mx-auto mt-5 p-5 bg-white rounded shadow-md">
-            <h2 className="text-2xl font-semibold mb-5 text-center">Register</h2>
+        <div className="register-container max-w-md mx-auto mt-2 p-5 bg-white rounded shadow-md">
+            <h2 className="text-2xl font-semibold mb-2 text-center">Register</h2>
             <form onSubmit={handleRegister} className="space-y-4">
                 <input
                     type="text"

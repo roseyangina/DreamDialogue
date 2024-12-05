@@ -6,21 +6,16 @@ const ProductSchema = mongoose.Schema(
             type: String,
             required: [true, "Please enter username"],
         },
-
         password: {
             type: String,
             required: [true, "Please enter password"],
         },
-
-        sleepHours: {
-            type: Number,
-            required: [false, "Please enter total sleep hours"],
+        bio: {
+            type: String, // Optional field
+            required: false,
         },
     },
-    
-    {
-        timestamps: true,
-    }
+    { timestamps: true } // Automatically add createdAt and updatedAt fields
 );
 
 const Product = mongoose.model('Product', ProductSchema);
