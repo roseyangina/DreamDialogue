@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import Register from './Register';
 import Login from './Login';
 
+
 const Landing = ({ setUser }) => {
     const [showForm, setShowForm] = useState(null); // 'register' or 'login'
 
     return (
-        <div className="max-w-md mx-auto mt-10 p-5 bg-white rounded shadow-md text-center">
-            <h2 className="text-3xl font-bold mb-5">Welcome to Dream Dialogue</h2>
-            <p className="text-lg text-gray-600 mb-5">Get Started!</p>
+        <div className="max-w-md mx-auto mt-8 p-5 bg-white rounded shadow-md text-center">
+            <h2 className="text-3xl text-blue-800 font-bold mb-5">Welcome to Dream Dialogue</h2>
+            <p className="text-lg text-gray-600 mb-4">Get Started!</p>
             {!showForm && (
                 <div>
                     <button
