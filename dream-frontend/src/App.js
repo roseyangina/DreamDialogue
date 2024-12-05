@@ -16,24 +16,33 @@ function App() {
     useEffect(() => {
         if (user) {
             const currentPath = window.location.pathname; // Get current URL path
+    
+            // If bio is missing, always redirect to profile-setup
             if (!user.bio && currentPath !== '/profile-setup') {
                 console.log('Redirecting to /profile-setup');
-                navigate('/profile-setup'); // Redirect to profile setup if bio is missing
-            } else if (
+                navigate('/profile-setup');
+                return; // Prevent further navigation logic
+            }
+    
+            // If bio is present and not on a valid page, redirect to /postdream
+            if (
+                user.bio && 
                 currentPath !== '/postdream' && 
                 currentPath !== '/profile' && 
                 currentPath !== '/livechat'
             ) {
                 console.log('Redirecting to /postdream');
-                navigate('/postdream'); // Redirect to postdream if profile is complete
+                navigate('/postdream');
             }
         } else {
+            // If no user is logged in, redirect to login/register
             if (window.location.pathname !== '/') {
                 console.log('Redirecting to /');
-                navigate('/'); // Default to login/register if no user
+                navigate('/');
             }
         }
-    }, [user, navigate]);    
+    }, [user, navigate]);
+        
        
     // Load user data from localStorage when the app starts
     useEffect(() => {
