@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const PostDream = ({ user }) => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     const [posts, setPosts] = useState([]); // Store all posts
+    const history = useNavigate();
 
     useEffect(() => {
         console.log('PostDream component mounted');
@@ -50,7 +52,6 @@ const PostDream = ({ user }) => {
         }
     };
 
-
     const handleReaction = async (postId, emoji) => {
         try {
             const response = await axios.put(`http://localhost:3001/api/posts/${postId}/react`, {
@@ -67,6 +68,10 @@ const PostDream = ({ user }) => {
         } catch (error) {
             console.error('Error reacting to post:', error.message);
         }
+    };
+
+    const handleSendToChat = (postId) => {
+        history(`/livechat?postId=${postId}`);
     };
 
     return (
@@ -143,6 +148,12 @@ const PostDream = ({ user }) => {
                                 😢 {post.reactions && post.reactions['😢'] ? post.reactions['😢'] : 0}
                             </button>
                         </div>
+                        <button
+                            onClick={() => handleSendToChat(post._id)}
+                            className="mt-2 py-1 px-3 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600"
+                        >
+                            Send to Chat
+                        </button>
                     </div>
                 ))}
             </div>
