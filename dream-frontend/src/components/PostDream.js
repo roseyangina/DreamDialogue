@@ -122,7 +122,7 @@ const PostDream = ({ user }) => {
                                 onClick={() => handleReaction(post._id, '👍')}
                                 className="text-black hover:underline"
                             >
-                                👍 {post.reactions && post.reactions['👍'] ? post.reactions['👍'] : 0}
+                                👍 ({post.reactions?.['👍'] || 0})
                             </button>
                             <button
                                 onClick={() => handleReaction(post._id, '❤️')}
@@ -140,7 +140,7 @@ const PostDream = ({ user }) => {
                                 onClick={() => handleReaction(post._id, '😢')}
                                 className="text-black hover:underline"
                             >
-                                😢 {post.reactions && post.reactions['😢'] ? post.reactions['😢'] : 0}
+                                😢 ({post.reactions?.['😢'] || 0})
                             </button>
                         </div>
                     </div>
