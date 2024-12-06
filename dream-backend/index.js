@@ -27,7 +27,7 @@ app.use('/api/posts', postRoute);
 app.use('/api/livechat', liveChatRoute);
 
 
-mongoose.connect("mongodb+srv://tranjonathan0917:DreamDialogue@dreamdialogue.bbacb.mongodb.net/?retryWrites=true&w=majority&appName=DreamDialogue")
+mongoose.connect("mongodb+srv://roangina:roangina@nodecluster.gdzcr.mongodb.net/?retryWrites=true&w=majority&appName=NodeCluster")
     .then(() => {
         console.log('Connected to MongoDB');
         const server = app.listen(3001, () => {
