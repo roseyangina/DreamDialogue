@@ -1,11 +1,10 @@
-const express = require('express')
+const express = require('express');
 const mongoose = require('mongoose');
 const Product = require('./models/product.model.js');
 const cors = require('cors'); // Import CORS
 const productRoute = require('./routes/product.route.js');
 const postRoute = require('./routes/post.route.js');
-
-const liveChatRoute = require('./routes/livechat.route'); 
+const { router: liveChatRoute, wss } = require('./routes/livechat.route.js');
 
 const app = express(); // Initialize app first
 
@@ -31,11 +30,16 @@ app.use('/api/livechat', liveChatRoute);
 mongoose.connect("mongodb+srv://tranjonathan0917:DreamDialogue@dreamdialogue.bbacb.mongodb.net/?retryWrites=true&w=majority&appName=DreamDialogue")
     .then(() => {
         console.log('Connected to MongoDB');
-        app.listen(3001, () => {
+        const server = app.listen(3001, () => {
             console.log('Server is running on port 3001');
+        });
+
+        server.on('upgrade', (request, socket, head) => {
+            wss.handleUpgrade(request, socket, head, (ws) => {
+                wss.emit('connection', ws, request);
+            });
         });
     })
     .catch(() => {
-        console.log("Connected failed!");
+        console.log("Connection failed!");
     });
-    
