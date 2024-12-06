@@ -17,7 +17,7 @@ const PostDream = ({ user }) => {
     useEffect(() => {
         const fetchPosts = async () => {
             try {
-                const response = await axios.get('http://localhost:3001/api/posts');
+                const response = await axios.get('https://dreamdialogue-production.up.railway.app/api/posts');
                 setPosts(response.data);
             } catch (error) {
                 console.error('Error fetching posts:', error);
@@ -35,7 +35,7 @@ const PostDream = ({ user }) => {
                 title,
                 content,
             });
-            const response = await axios.post('http://localhost:3001/api/posts', {
+            const response = await axios.post('https://dreamdialogue-production.up.railway.app/api/posts', {
                 username: user.username,
                 title,
                 content,
@@ -53,7 +53,7 @@ const PostDream = ({ user }) => {
 
     const handleReaction = async (postId, emoji) => {
         try {
-            const response = await axios.put(`http://localhost:3001/api/posts/${postId}/react`, {
+            const response = await axios.put(`https://dreamdialogue-production.up.railway.app/api/posts/${postId}/react`, {
                 emoji,
                 userId: user._id,
             });

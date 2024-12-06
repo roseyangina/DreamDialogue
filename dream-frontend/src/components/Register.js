@@ -12,7 +12,7 @@ const Register = ({ setUser }) => {
         console.log('Registering user with:', { username, password });
         try {
             console.log('Sending data:', { username, password });
-            const response = await axios.post('http://localhost:3001/api/products/register', {
+            const response = await axios.post('https://dreamdialogue-production.up.railway.app/api/products/register', {
                 username,
                 password,
             });

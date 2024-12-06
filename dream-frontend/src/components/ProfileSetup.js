@@ -11,7 +11,7 @@ const ProfileSetup = ({ user, updateProfile }) => {
         console.log('handleSaveProfile triggered');
         try {
             // Send bio to the backend to update it for the logged-in user
-            const response = await axios.put(`http://localhost:3001/api/products/profile-setup/${user._id}`, {
+            const response = await axios.put(`https://dreamdialogue-production.up.railway.app/api/products/profile-setup/${user._id}`, {
                 bio,
             });
 

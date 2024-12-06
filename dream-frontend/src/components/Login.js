@@ -8,7 +8,7 @@ const Login = ({ setUser }) => {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:3001/api/products/login', {
+            const response = await axios.post('https://dreamdialogue-production.up.railway.app/api/products/login', {
                 username,
                 password,
             });
