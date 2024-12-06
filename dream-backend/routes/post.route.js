@@ -44,6 +44,23 @@ router.get('/', async (req, res) => {
     }
 });
 
+// Route to fetch a post by ID
+router.get('/:id', async (req, res) => {
+    const { id } = req.params;
+    console.log(`Fetching post with ID: ${id}`); // Add logging
+    try {
+        const post = await Post.findById(id);
+        if (!post) {
+            console.log('Post not found'); // Add logging
+            return res.status(404).json({ message: 'Post not found' });
+        }
+        res.status(200).json(post);
+    } catch (error) {
+        console.error('Error fetching dpost:', error.message);
+        res.status(500).json({ message: 'Failed to fetch post' });
+    }
+});
+
 router.put('/:id/react', async (req, res) => {
     const { id } = req.params; // Extract post ID from URL
     const { emoji, userId } = req.body; // Extract emoji and userId from request body
